@@ -1,2 +1,3 @@
-# nvim
-This repository holds my configurations for nvim.
+# Nvim configuration
+
+# TODO: Create the readme file
