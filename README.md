@@ -32,4 +32,3 @@ Run `:MasonInstallAll` command after lazy.nvim finishes downloading plugins.
 ## Plugins
 
 You can see the list of plugins added by [NvChad](https://nvchad.com/), here [plugins list](https://github.com/NvChad/NvChad?tab=readme-ov-file#plugins-list).
-
