@@ -23,7 +23,7 @@ function M.load_mappings()
     -- Mappings
     mappings.map("n", "<leader>gsj", addTags("json"), { desc = "Add json tags to struct fields" })
     mappings.map("n", "<leader>gsy", addTags("yaml"), { desc = "Add yaml tags to struct fields" })
-    mappings.map("n", "<leader>gie", vim.cmd.GoIfErr, { desc = "Add yaml tags to struct fields" })
+    mappings.map("n", "<leader>gie", vim.cmd.GoIfErr, { desc = "Add boiler code to validate error" })
 
   end)
 end

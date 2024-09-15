@@ -1,101 +1,127 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    event = 'BufWritePre',
-    config = function()
-      require "configs.conform"
-    end,
-  },
 
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
-    end,
-  },
+	{
+		"stevearc/conform.nvim",
+		event = "BufWritePre",
+		config = function()
+			require("configs.conform")
+		end,
+	},
 
-  {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    opts = function ()
-      local config = require("nvchad.configs.nvimtree")
-      return vim.tbl_deep_extend("force", config, require("configs.nvimtree"))
-    end,
-    config = function (_, opts)
-      require("nvim-tree").setup(opts)
-    end
-  },
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("nvchad.configs.lspconfig").defaults()
+			require("configs.lspconfig")
+		end,
+	},
 
-  {
-  	"williamboman/mason.nvim",
-  	opts = {
-  		ensure_installed = {
-        -- Lua
-  			"lua-language-server", "stylua",
-        -- Go
-        "gopls", "delve", "golines", "gofumpt", "goimports-reviser",
-        -- Java
-        "jdtls", "java-debug-adapter", "java-test",
-        -- Others
-  			"html-lsp", "css-lsp" , "prettier"
-  		},
-  	},
-  },
+	{
+		"nvim-tree/nvim-tree.lua",
+		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+		opts = function()
+			local config = require("nvchad.configs.nvimtree")
+			return vim.tbl_deep_extend("force", config, require("configs.nvimtree"))
+		end,
+		config = function(_, opts)
+			require("nvim-tree").setup(opts)
+		end,
+	},
 
-  {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc", "go", "markdown", "bash",
-       "html", "css", "java"
-  		},
-  	},
-  },
+	{
+		"williamboman/mason.nvim",
+		opts = {
+			ensure_installed = {
+				-- Lua
+				"lua-language-server",
+				"stylua",
+				-- Go
+				"gopls",
+				"delve",
+				"golines",
+				"gofumpt",
+				"goimports-reviser",
+				-- Java
+				"jdtls",
+				"java-debug-adapter",
+				"java-test",
+				-- Others
+				"html-lsp",
+				"css-lsp",
+				"prettier",
+			},
+		},
+	},
 
-  {
-    "christoomey/vim-tmux-navigator",
-    lazy = false,
-  },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			ensure_installed = {
+				"vim",
+				"lua",
+				"vimdoc",
+				"go",
+				"markdown",
+				"bash",
+				"html",
+				"css",
+				"java",
+			},
+		},
+	},
 
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    ft = "go",
-    opts = function ()
-      return require("configs.null-ls")
-    end
-  },
+	{
+		"christoomey/vim-tmux-navigator",
+		lazy = false,
+	},
 
-  {
-    "mfussenegger/nvim-dap",
-    init = function ()
-      require("mappings.dap").load_mappings()
-    end
-  },
+	{
+		"vimtools/none-ls.nvim",
+		ft = "go",
+		opts = function()
+			return require("configs.null-ls")
+		end,
+	},
 
-  {
-    "leoluz/nvim-dap-go",
-    ft = "go",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function(_, opts)
-      require("dap-go").setup(opts)
-      require("mappings.go.dap-go").load_mappings()
-    end
-  },
+	{
+		"mfussenegger/nvim-dap",
+		init = function()
+			require("mappings.dap").load_mappings()
+		end,
+	},
 
-  {
-    "olexsmir/gopher.nvim",
-    ft = "go",
-    config = function (_, opts)
-      require("gopher").setup(opts)
-      require("mappings.go.gopher").load_mappings()
-    end,
-    build = function ()
-      vim.cmd [[silent! GoInstallDeps]]
-    end
-  },
+	{
+		"leoluz/nvim-dap-go",
+		ft = "go",
+		dependencies = "mfussenegger/nvim-dap",
+		config = function(_, opts)
+			require("dap-go").setup(opts)
+			require("mappings.go.dap-go").load_mappings()
+		end,
+	},
 
-  {
-    dir = "/home/aaronv/development/lua/plugins/gmode"
-  }
+	{
+		"olexsmir/gopher.nvim",
+		ft = "go",
+		config = function(_, opts)
+			require("gopher").setup(opts)
+			require("mappings.go.gopher").load_mappings()
+		end,
+		build = function()
+			vim.cmd([[silent! GoInstallDeps]])
+		end,
+	},
+
+	{
+		"mfussenegger/nvim-jdtls",
+		ft = "java",
+		dependencies = "hrsh7th/cmp-nvim-lsp",
+		config = function()
+			require("configs.jdtls").setup()
+		end,
+	},
+
+	{
+		dir = "/home/aaronv/development/lua/plugins/gmode",
+	},
 }
