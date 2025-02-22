@@ -41,7 +41,7 @@ return {
     "neovim/nvim-lsp",
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { "williamboman/mason.nvim",                  config = true },
+      { "williamboman/mason.nvim", config = true },
       -- "williamboman/mason-lspconfig.nvim",
       { "WhoIsSethDaniel/mason-tool-installer.nvim" },
       -- { "j-hui/fidget.nvim", opts = {} },
@@ -54,7 +54,6 @@ return {
           library = {
             { path = "${3rd}/luv/library", words = { "vim%.uv" } },
           },
-
         },
       },
       { 'saghen/blink.cmp' }
@@ -71,7 +70,6 @@ return {
         config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
         lspconfig[server].setup(config)
       end
-
       require("mason").setup()
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
