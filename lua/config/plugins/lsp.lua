@@ -41,7 +41,7 @@ return {
     "neovim/nvim-lsp",
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { "williamboman/mason.nvim", config = true },
+      { "williamboman/mason.nvim",                  config = true },
       -- "williamboman/mason-lspconfig.nvim",
       { "WhoIsSethDaniel/mason-tool-installer.nvim" },
       -- { "j-hui/fidget.nvim", opts = {} },
@@ -61,7 +61,9 @@ return {
     opts = {
       servers = {
         lua_ls = {},
-        gopls = {}
+        gopls = {},
+        jsonls = {},
+        yamlls = {}
       }
     },
     config = function(_, opts)
