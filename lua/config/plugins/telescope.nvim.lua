@@ -26,6 +26,9 @@ return {
           cwd = vim.fn.stdpath("config")
         }
       end, { desc = "[S]earch [N]eovim" })
+      set("n", "<space>sm", function()
+        require('telescope.builtin').lsp_document_symbols({ symbols = { 'function', 'method' } })
+      end, { desc = "[S]earch [M]ethods" })
     end
   }
 }
