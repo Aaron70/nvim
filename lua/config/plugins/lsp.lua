@@ -8,7 +8,7 @@ local ensure_installed = {
   "golines",
   "goimports-reviser",
   -- Java
-  -- "jdtls",
+  "jdtls",
   -- "java-debug-adapter",
   -- "java-test",
   -- "cucumber_language_server",
@@ -64,6 +64,9 @@ return {
         gopls = {},
         jsonls = {},
         yamlls = {}
+        jdtls = {
+          cmd = { vim.fn.stdpath("data") .. "/mason/bin/jdtls", "-configuration", "/home/user/.cache/jdtls/config", "-data", "/home/user/.cache/jdtls/workspace" }
+        }
       }
     },
     config = function(_, opts)
