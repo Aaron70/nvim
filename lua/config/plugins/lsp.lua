@@ -24,7 +24,7 @@ function SetupFormatOnSave()
       end
 
       ---@diagnostic disable-next-line: param-type-mismatch
-      if client.supports_method("textDocument/formatting", 0) then
+      if client.supports_method("textDocument/formatting", {}) then
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = args.buf,
           callback = function()
@@ -64,16 +64,13 @@ return {
         gopls = {},
         jsonls = {},
         yamlls = {}
-        jdtls = {
-          cmd = { vim.fn.stdpath("data") .. "/mason/bin/jdtls", "-configuration", "/home/user/.cache/jdtls/config", "-data", "/home/user/.cache/jdtls/workspace" }
-        }
       }
     },
     config = function(_, opts)
       local lspconfig = require('lspconfig')
       for server, config in pairs(opts.servers) do
         config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
-        lspconfig[server].setup(config)
+        lspconfig[server].setup(config or {})
       end
       require("mason").setup()
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
