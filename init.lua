@@ -1,7 +1,8 @@
+-- The order of this matters
 require("config.opts")
-require("config.keymaps")
 require("config.autocmds")
 require("config.lazy")
+require("config.keymaps")
 
 -- TODO: Termporal keybindings
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
