@@ -74,5 +74,14 @@ return {
       statuscolumn = { enabled = true },
       words = { enabled = true },
     },
+    config = function()
+      local notifier = require("snacks.notifier")
+      require("which-key").add({
+        -- Notifications
+        { "<leader>n", group = "[N]otifications" },
+        { "<leader>nh", rhs = function() notifier.show_history({}) end, mode = "n", desc = "Show [H]istory" },
+        { "<leader>nd", rhs = function() notifier.hide() end, mode = "n", desc = "[D]ismiss" },
+      })
+    end
   }
 }

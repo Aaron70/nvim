@@ -17,21 +17,33 @@ return {
       }
       require('telescope').load_extension('fzf')
 
-      local set = vim.keymap.set
-      -- Keymaps
-      set("n", "<space>sg", require('config.telescope.multigrep').live_multigrep, { desc = "[S]earch [G]rep" })
-      set("n", "<space>s.", require('telescope.builtin').oldfiles, { desc = "[S]earch [.]Recents" })
-      set("n", "<space>sr", require('telescope.builtin').resume, { desc = "[S]earch [R]esume" })
-      set("n", "<space>sf", require('telescope.builtin').find_files, { desc = "[S]earch [F]iles" })
-      set("n", "<space>sh", require('telescope.builtin').help_tags, { desc = "[S]earch [H]elp Tags" })
-      set("n", "<space>sn", function()
-        require('telescope.builtin').find_files {
-          cwd = vim.fn.stdpath("config")
+      require("which-key").add({
+        -- Keymaps
+        { "<leader>s", group = "[S]earch" },
+        { "<leader>sg", mode = "n", rhs = require('config.telescope.multigrep').live_multigrep, desc = "[G]rep" },
+        { "<leader>s.", mode = "n", rhs = require('telescope.builtin').oldfiles, desc = "[.]Recents" },
+        { "<leader>sr", mode = "n", rhs = require('telescope.builtin').resume, desc = "[R]esume" },
+        { "<leader>sf", mode = "n", rhs = require('telescope.builtin').find_files, desc = "[F]iles" },
+        { "<leader>sh", mode = "n", rhs = require('telescope.builtin').help_tags, desc = "[H]elp Tags" },
+        {
+          "<leader>sn",
+          mode = "n",
+          rhs = function()
+            require('telescope.builtin').find_files {
+              cwd = vim.fn.stdpath("config")
+            }
+          end,
+          desc = "[N]eovim files"
+        },
+        {
+          "<leader>sm",
+          mode = "n",
+          rhs = function()
+            require('telescope.builtin').lsp_document_symbols({ symbols = { 'function', 'method' } })
+          end,
+          desc = "[M]ethods"
         }
-      end, { desc = "[S]earch [N]eovim" })
-      set("n", "<space>sm", function()
-        require('telescope.builtin').lsp_document_symbols({ symbols = { 'function', 'method' } })
-      end, { desc = "[S]earch [M]ethods" })
+      })
     end
   }
 }
