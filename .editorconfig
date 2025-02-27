@@ -1,0 +1,7 @@
+[*.lua]
+indent_size = 2
+tab_width = 2
+align_continuous_assign_statement = true
+align_continuous_rect_table_field = true
+align_array_table = false
+
