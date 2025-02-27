@@ -1,28 +1,29 @@
-local notifier = require("snacks.notifier")
-local set = vim.keymap.set
-local leader = vim.g.mapleader
+require("which-key").add({
+  { "jk", rhs = "<ESC>", mode = "i", hidden = true },
 
-set("i", "jk", "<ESC>l")
 
--- Save file
-set({ "n", "v" }, "<C-s>", ":w<CR>")
-set({ "i" }, "<C-s>", "<ESC>:w<CR>")
+  -- Save file
+  { cond = false, "<leader>w", rhs = ":w<CR>", mode = { "n", "v" }, desc = "[W]rite buffer" },
 
--- Yank to clipboard
-set({ "n", "v" }, leader .. "y", '"+y')
-set({ "n", "v" }, leader .. "p", '"+p')
 
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+  -- Yank to clipboard
+  { "<leader>y", rhs = '"+y', mode = { "v" }, desc = "[Y]ank to clipboard", hidden = true },
+  { "<leader>yy", rhs = '"+yy', mode = { "n" }, desc = "[Y]ank line to clipboard", hidden = true },
+  { "<leader>p", rhs = '"+p', mode = { "n", "v" }, desc = "[P]aste from clipboard", hidden = true },
+  { "<leader>P", rhs = '"+P', mode = { "n", "v" }, desc = "[P]aste from clipboard (Before)", hidden = true },
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---  See `:help wincmd` for a list of all window commands
-set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
--- Notifications
-set("n", leader .. "nh", function() notifier.show_history({}) end, { desc = "Show the notification history" })
+  -- Clear highlights on search when pressing <Esc> in normal mode
+  --  See `:help hlsearch`
+  { "<Esc>", rhs = "<cmd>nohlsearch<CR>", hidden = true },
+
+
+  -- Keybinds to make split navigation easier.
+  --  Use CTRL+<hjkl> to switch between panes
+  --  See `:help wincmd` for a list of all pane commands
+  { "<C-h>", rhs = "<C-w><C-h>", mode = "n", desc = "Move focus to the left pane" },
+  { "<C-l>", rhs = "<C-w><C-l>", mode = "n", desc = "Move focus to the right pane" },
+  { "<C-j>", rhs = "<C-w><C-j>", mode = "n", desc = "Move focus to the down pane" },
+  { "<C-k>", rhs = "<C-w><C-k>", mode = "n", desc = "Move focus to the up pane" },
+  { "<C-h>", group = "Move focus to pane" },
+})
