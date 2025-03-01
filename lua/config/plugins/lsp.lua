@@ -36,12 +36,26 @@ function SetupFormatOnSave()
   })
 end
 
+function SetupKeymaps()
+  local lsp = vim.lsp
+  require("which-key").add({
+    { "gd", rhs = require("telescope.builtin").lsp_definitions, mode = "n", desc = "[G]oto [D]efinition" },
+    { "gr", rhs = require("telescope.builtin").lsp_references, mode = "n", desc = "[G]oto [R]eferences" },
+    { "gI", rhs = require("telescope.builtin").lsp_implementations, mode = "n", desc = "[G]oto [I]mplementation" },
+
+
+    { "<leader>ca", rhs = lsp.buf.code_action, mode = "n", desc = "[C]ode [A]ctions" },
+    { "<leader>rn", rhs = lsp.buf.rename, mode = "n", desc = "[R]e[n]ame" },
+
+  })
+end
+
 return {
   {
     "neovim/nvim-lsp",
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { "williamboman/mason.nvim",                  config = true },
+      { "williamboman/mason.nvim", config = true },
       -- "williamboman/mason-lspconfig.nvim",
       { "WhoIsSethDaniel/mason-tool-installer.nvim" },
       -- { "j-hui/fidget.nvim", opts = {} },
@@ -63,7 +77,7 @@ return {
         lua_ls = {},
         gopls = {},
         jsonls = {},
-        yamlls = {}
+        yamlls = {},
       }
     },
     config = function(_, opts)
@@ -76,6 +90,7 @@ return {
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
       SetupFormatOnSave()
+      SetupKeymaps()
     end,
   },
 }
