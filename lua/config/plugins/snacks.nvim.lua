@@ -48,6 +48,7 @@ end
 return {
   {
     "folke/snacks.nvim",
+    enabled = true,
     priority = 1000,
     lazy = false,
     ---@type snacks.Config
@@ -58,30 +59,37 @@ return {
       bigfile = { enabled = true },
       dashboard = { enabled = false },
       explorer = { enabled = false },
-      indent = { enabled = true },
       input = { enabled = true },
       picker = { enabled = false },
-      notifier = {
-        lazy = false,
-        enabled = true,
-        config = function()
-          notifier_setup()
-        end
-      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
       statuscolumn = { enabled = true },
       words = { enabled = true },
+      notifier = {
+        enabled = true,
+        top_down = false,
+      },
+      indent = {
+        enabled = true,
+        animate = {
+          enabled = vim.fn.has("nvim-0.10") == 1,
+          style = "out",
+          easing = "linear",
+          duration = {
+            step = 10,   -- ms per step
+            total = 200, -- maximum duration
+          },
+        },
+        scope = {
+          enabled = true, -- enable highlighting the current scope
+          priority = 200,
+          char = "│",
+          underline = false,    -- underline the start of the scope
+          only_current = false, -- only show scope in the current window
+          hl = "SnacksIndentScope", ---@type string|string[] hl group for scopes
+        }
+      },
     },
-    config = function()
-      local notifier = require("snacks.notifier")
-      require("which-key").add({
-        -- Notifications
-        { "<leader>n", group = "[N]otifications" },
-        { "<leader>nh", rhs = function() notifier.show_history({}) end, mode = "n", desc = "Show [H]istory" },
-        { "<leader>nd", rhs = function() notifier.hide() end, mode = "n", desc = "[D]ismiss" },
-      })
-    end
   }
 }

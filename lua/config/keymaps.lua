@@ -1,3 +1,4 @@
+local notifier = require("snacks.notifier")
 require("which-key").add({
   { "jk", rhs = "<ESC>", mode = "i", hidden = true },
 
@@ -26,4 +27,9 @@ require("which-key").add({
   { "<C-j>", rhs = "<C-w><C-j>", mode = "n", desc = "Move focus to the down pane" },
   { "<C-k>", rhs = "<C-w><C-k>", mode = "n", desc = "Move focus to the up pane" },
   { "<C-h>", group = "Move focus to pane" },
+
+  -- Notification
+  { "<leader>n", group = "[N]otifications" },
+  { "<leader>nh", rhs = function() notifier.show_history({}) end, mode = "n", desc = "Show [H]istory" },
+  { "<leader>nd", rhs = function() notifier.hide() end, mode = "n", desc = "[D]ismiss" },
 })
