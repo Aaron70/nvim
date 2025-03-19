@@ -44,7 +44,7 @@ return {
         { "<leader>sf", mode = "n", rhs = builtin.find_files, desc = "[F]iles" },
         { "<leader>sh", mode = "n", rhs = builtin.help_tags, desc = "[H]elp Tags" },
         { "<leader>sd", mode = "n", rhs = builtin.diagnostics, desc = "[D]iagnostics" },
-        { "<leader><leader>", mode = "n", rhs = builtin.buffers, desc = "[ ]Existing buffers" },
+        { "<leader>sb", mode = "n", rhs = builtin.buffers, desc = "[B]uffers" },
         {
           "<leader>sn",
           mode = "n",
