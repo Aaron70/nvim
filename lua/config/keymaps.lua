@@ -32,4 +32,9 @@ require("which-key").add({
   { "<leader>n", group = "[N]otifications" },
   { "<leader>nh", rhs = function() notifier.show_history({}) end, mode = "n", desc = "Show [H]istory" },
   { "<leader>nd", rhs = function() notifier.hide() end, mode = "n", desc = "[D]ismiss" },
+
+  -- Lua Development
+  { "<space><space>x", rhs = "<cmd>source %<CR>", mode = "n", desc = "Source the current buffer" },
+  { "<space>x", rhs = ":.lua<CR>", mode = "n", desc = "Executes the current lua buffer" },
+  { "<space>x", rhs = ":lua<CR>", mode = "v", desc = "Executes the selected lua code" }
 })
