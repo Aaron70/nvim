@@ -21,8 +21,32 @@ return {
       cmdline = {
         enabled = true,
         keymap = {
-          ['enter'] = { "accept_and_enter", "fallback" },
-          ['esc'] = { "cancel", "fallback" }
+          ['enter'] = { "select_accept_and_enter" },
+          ['esc'] = { "cancel" },
+
+          ['<Tab>'] = {
+            function(cmp)
+              if cmp.is_ghost_text_visible() and not cmp.is_menu_visible() then return cmp.accept() end
+            end,
+            'show_and_insert',
+            'select_next',
+          },
+          ['<S-Tab>'] = { 'show_and_insert', 'select_prev' },
+
+          ['<C-n>'] = { 'select_next' },
+          ['<C-p>'] = { 'select_prev' },
+
+          ['<C-y>'] = { 'select_and_accept' },
+          ['<C-e>'] = { 'cancel' },
+        },
+        completion = {
+          menu = {
+            auto_show = function(ctx)
+              return vim.fn.getcmdtype() == ':'
+              -- enable for inputs as well, with:
+              -- or vim.fn.getcmdtype() == '@'
+            end,
+          },
         }
       },
       sources = {
@@ -73,7 +97,7 @@ return {
       },
       completion = {
         list = {
-          selection = { preselect = false, auto_insert = false },
+          selection = { preselect = true, auto_insert = false },
         },
         menu = {
           border = config.border,
