@@ -13,7 +13,7 @@ vim.opt.showmode = false
 -- Sync clipboard between OS and Neovim.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-	vim.opt.clipboard = "unnamed"
+  vim.opt.clipboard = "unnamed"
 end)
 
 -- Enable break indent
@@ -59,3 +59,5 @@ vim.opt.scrolloff = 10
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+
+vim.o.background = "dark"

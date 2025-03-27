@@ -8,7 +8,6 @@ return {
         ensure_installed = {
           "bash",
           "c",
-          "dap_repl",
           "dockerfile",
           "go",
           "java",
