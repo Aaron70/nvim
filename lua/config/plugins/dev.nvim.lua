@@ -1,3 +1,3 @@
 return {
-  { dir = "~/personal/dev/lua/xtool" }
+  -- { dir = "~/personal/dev/lua/xtool" }
 }
