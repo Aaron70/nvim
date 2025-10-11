@@ -297,8 +297,9 @@
           lspDebugMode = false;
           # you could also pass something else:
           # see :help nixCats
-          themer = true;
-          colorscheme = "tokyonight";
+          themer = false;
+          colorscheme = "onedark";
+          # colorscheme = "tokyonight";
         };
         extra = {
           # to keep the categories table from being filled with non category things that you want to pass
