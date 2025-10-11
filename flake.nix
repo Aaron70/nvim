@@ -81,6 +81,7 @@
             nui-nvim
             nvim-web-devicons
             neo-tree-nvim
+            flash-nvim
           ];
         };
         # :help nixCats.flake.outputs.categoryDefinitions.scheme

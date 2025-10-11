@@ -76,5 +76,6 @@ require('lze').load {
   { import = "config.plugins.gitsigns", },
   { import = "config.plugins.lazygit", },
   { import = "config.plugins.lualine", },
+  { import = "config.plugins.flash", },
   { "mini.nvim", },
 }

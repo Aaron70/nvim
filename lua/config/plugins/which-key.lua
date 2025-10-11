@@ -27,6 +27,7 @@ return {
         { "<leader>t_", hidden = true },
         { "<leader>w", group = "[w]orkspace" },
         { "<leader>w_", hidden = true },
+        { "<leader>F", group = "[f]lash" },
         { "<leader>?", function() require("which-key").show({ global = true }) end, desc = "Buffer Local Keymaps (which-key)" }
       }
     end,
