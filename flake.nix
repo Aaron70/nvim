@@ -1,25 +1,6 @@
-# Copyright (c) 2023 BirdeeHub
-# Licensed under the MIT license
-
-# Welcome to the main example config of nixCats!
-# there is a minimal flake the starter templates use
-# within the nix directory without the nixpkgs input,
-# but this one would work too!
-# Every config based on nixCats is a full nixCats.
-
-# This example config doesnt use lazy.nvim, and
-# it loads everything via nix.
-
-# It has some useful tricks
-# in it, especially for lsps, so if you have any questions,
-# first look through the docs, and then here!
-# It has examples of most of the things you would want to do
-# in your main nvim configuration.
-
-# If there is still not adequate info, ask in discussions
-# on the nixCats repo (or open a PR to add the info to the help!)
 {
-  description = "A Lua-natic's neovim flake, with extra cats! nixCats!";
+  # https://nixcats.org/index.html
+  description = "My personal Neovim configuration, built with NixCats";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -27,64 +8,22 @@
 
     # see :help nixCats.flake.inputs
     # If you want your plugin to be loaded by the standard overlay,
-    # i.e. if it wasnt on nixpkgs, but doesnt have an extra build step.
-    # Then you should name it "plugins-something"
-    # If you wish to define a custom build step not handled by nixpkgs,
-    # then you should name it in a different format, and deal with that in the
-    # overlay defined for custom builds in the overlays directory.
     # for specific tags, branches and commits, see:
     # https://nixos.org/manual/nix/stable/command-ref/new-cli/nix3-flake.html#examples
-
-    # No longer fetched to avoid forcing people to import it, but this remains here as a tutorial.
-    # How to import it into your config is shown farther down in the startupPlugins set.
-    # You put it here like this, and then below you would use it with `pkgs.neovimPlugins.hlargs`
-
-    # "plugins-hlargs" = {
-    #   url = "github:m-demare/hlargs.nvim";
-    #   flake = false;
-    # };
-
-    # neovim-nightly-overlay = {
-    #   url = "github:nix-community/neovim-nightly-overlay";
-    # };
-
   };
 
   # see :help nixCats.flake.outputs
   outputs = { self, nixpkgs, ... }@inputs: let
     inherit (inputs.nixCats) utils;
     luaPath = ./.;
-    # this is flake-utils eachSystem
     forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
-    # the following extra_pkg_config contains any values
-    # which you want to pass to the config set of nixpkgs
-    # import nixpkgs { config = extra_pkg_config; inherit system; }
-    # will not apply to module imports
-    # as that will have your system values
     extra_pkg_config = {
       # allowUnfree = true;
     };
-    # management of the system variable is one of the harder parts of using flakes.
-
-    # so I have done it here in an interesting way to keep it out of the way.
-    # It gets resolved within the builder itself, and then passed to your
-    # categoryDefinitions and packageDefinitions.
-
-    # this allows you to use ${pkgs.system} whenever you want in those sections
-    # without fear.
-
+    
     # see :help nixCats.flake.outputs.overlays
     dependencyOverlays = /* (import ./overlays inputs) ++ */ [
-      # This overlay grabs all the inputs named in the format
-      # `plugins-<pluginName>`
-      # Once we add this overlay to our nixpkgs, we are able to
-      # use `pkgs.neovimPlugins`, which is a set of our plugins.
       (utils.standardPluginOverlay inputs)
-      # add any other flake overlays here.
-
-      # when other people mess up their overlays by wrapping them with system,
-      # you may instead call this function on their overlay.
-      # it will check if it has the system in the set, and if so return the desired overlay
       # (utils.fixSystemizedOverlay inputs.codeium.overlays
       #   (system: inputs.codeium.overlays.${system}.default)
       # )
@@ -94,28 +33,19 @@
     # and
     # :help nixCats.flake.outputs.categoryDefinitions.scheme
     categoryDefinitions = { pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
-      # to define and use a new category, simply add a new list to a set here, 
-      # and later, you will include categoryname = true; in the set you
-      # provide when you build the package using this builder function.
-      # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
+      # see :help nixCats.flake.outputs.packageDefinitions
 
       # lspsAndRuntimeDeps:
       # this section is for dependencies that should be available
       # at RUN TIME for plugins. Will be available to PATH within neovim terminal
       # this includes LSPs
       lspsAndRuntimeDeps = {
-        # some categories of stuff.
         general = with pkgs; [
           universal-ctags
           ripgrep
           fd
           gcc
         ];
-        # these names are arbitrary.
-        lint = with pkgs; [
-        ];
-        # but you can choose which ones you want
-        # per nvim package you export
         debug = with pkgs; {
           go = [ delve ];
         };
@@ -125,14 +55,11 @@
           go-tools
           gccgo
         ];
-        # and easily check if they are included in lua
-        format = with pkgs; [
-        ];
         neonixdev = {
-          # also you can do this.
           inherit (pkgs) nix-doc lua-language-server nixd;
-          # and each will be its own sub category
         };
+        lint = with pkgs; [ ];
+        format = with pkgs; [ ];
       };
 
       # This is for plugins that will load at startup without using packadd:
@@ -141,8 +68,6 @@
           nvim-nio
         ];
         general = with pkgs.vimPlugins; {
-          # you can make subcategories!!!
-          # (always isnt a special name, just the one I chose for this subcategory)
           always = [
             lze
             lzextras
@@ -158,8 +83,6 @@
             neo-tree-nvim
           ];
         };
-        # You can retreive information from the
-        # packageDefinitions of the package this was packaged with.
         # :help nixCats.flake.outputs.categoryDefinitions.scheme
         themer = with pkgs.vimPlugins;
           (builtins.getAttr (categories.colorscheme or "onedark") {
@@ -171,7 +94,6 @@
               "tokyonight-day" = tokyonight-nvim;
             }
           );
-          # This is obviously a fairly basic usecase for this, but still nice.
       };
 
       # not loaded automatically at startup.
@@ -181,10 +103,6 @@
       # `:NixCats pawsible` command to see them all
       optionalPlugins = {
         debug = with pkgs.vimPlugins; {
-          # it is possible to add default values.
-          # there is nothing special about the word "default"
-          # but we have turned this subcategory into a default value
-          # via the extraCats section at the bottom of categoryDefinitions.
           default = [
             nvim-dap
             nvim-dap-ui
@@ -338,7 +256,7 @@
     packageDefinitions = {
       # the name here is the name of the package
       # and also the default command name for it.
-      nixCats = { pkgs, name, ... }@misc: {
+      nvim = { pkgs, name, ... }@misc: {
         # these also recieve our pkgs variable
         # see :help nixCats.flake.outputs.packageDefinitions
         settings = {
@@ -453,7 +371,7 @@
       };
     };
 
-    defaultPackageName = "nixCats";
+    defaultPackageName = "nvim";
     # I did not here, but you might want to create a package named nvim.
 
     # defaultPackageName is also passed to utils.mkNixosModules and utils.mkHomeModules
