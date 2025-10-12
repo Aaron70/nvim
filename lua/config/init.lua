@@ -34,6 +34,7 @@ end
 -- but it is enough to serve as an example.
 
 local projectfile = vim.fn.getcwd() .. '/project.godot'
-if projectfile then
+if vim.fn.filereadable(projectfile) == 1 then
   vim.fn.serverstart './godothost'
+  vim.notify("The godot socket is active. Socket: " .. projectfile)
 end

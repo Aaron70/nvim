@@ -167,4 +167,12 @@ require('lze').load {
     "gdscript",
     lsp = {}
   },
+  {
+    "ts_ls",
+    lsp = {},
+  },
+  -- {
+  --   "tsgo",
+  --   lsp = {},
+  -- },
 }

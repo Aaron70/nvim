@@ -45,6 +45,7 @@
           ripgrep
           fd
           gcc
+          cowsay
         ];
         debug = with pkgs; {
           go = [ delve ];
@@ -54,6 +55,10 @@
           gotools
           go-tools
           gccgo
+        ];
+        typescript = with pkgs; [
+          typescript-go
+          typescript-language-server
         ];
         neonixdev = {
           inherit (pkgs) nix-doc lua-language-server nixd;
@@ -238,6 +243,9 @@
         go = [
           [ "debug" "go" ] # yes it has to be a list of lists
         ];
+        typescript = [
+          [ "typescript" ] # yes it has to be a list of lists
+        ];
       };
     };
 
@@ -284,6 +292,8 @@
           general = true;
           lint = true;
           format = true;
+          go = true;
+          typescript = true;
           neonixdev = true;
           test = {
             subtest1 = true;
