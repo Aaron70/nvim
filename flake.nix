@@ -45,7 +45,6 @@
           ripgrep
           fd
           gcc
-          cowsay
         ];
         debug = with pkgs; {
           go = [ delve ];
@@ -54,6 +53,7 @@
           gopls
           gotools
           go-tools
+          vimPlugins.vim-go
           #gccgo
         ];
         typescript = with pkgs; [
