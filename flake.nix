@@ -58,7 +58,8 @@
         ];
         typescript = with pkgs; [
           typescript-go
-          typescript-language-server
+          tailwindcss-language-server
+          vscode-langservers-extracted
         ];
         neonixdev = {
           inherit (pkgs) nix-doc lua-language-server nixd;
