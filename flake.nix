@@ -53,14 +53,12 @@
           gopls
           gotools
           go-tools
-          vimPlugins.vim-go
           #gccgo
         ];
         typescript = with pkgs; [
           typescript-go
           tailwindcss-language-server
           vscode-langservers-extracted
-          vimPlugins.nvim-ts-autotag
         ];
         neonixdev = {
           inherit (pkgs) nix-doc lua-language-server nixd;
@@ -118,6 +116,10 @@
           ];
           go = [ nvim-dap-go ];
         };
+        go = with pkgs; [ ];
+        typescript = with pkgs; [
+          vimPlugins.nvim-ts-autotag
+        ];
         lint = with pkgs.vimPlugins; [
           nvim-lint
         ];
