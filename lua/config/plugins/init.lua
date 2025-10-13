@@ -66,7 +66,6 @@ end
 
 require('lze').load {
   { "mini.nvim", },
-  { "nvim-ts-autotag", },
   { import = "config.plugins.telescope", },
   { import = "config.plugins.treesitter", },
   { import = "config.plugins.completion", },
@@ -79,4 +78,5 @@ require('lze').load {
   { import = "config.plugins.lazygit", },
   { import = "config.plugins.lualine", },
   { import = "config.plugins.flash", },
+  { import = "config.plugins.nvim-ts-autotag", },
 }
