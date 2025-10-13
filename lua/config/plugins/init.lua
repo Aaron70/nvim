@@ -78,4 +78,5 @@ require('lze').load {
   { import = "config.plugins.lualine", },
   { import = "config.plugins.flash", },
   { "mini.nvim", },
+  { "nvim-ts-autotag", },
 }

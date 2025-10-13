@@ -60,6 +60,7 @@
           typescript-go
           tailwindcss-language-server
           vscode-langservers-extracted
+          vimPlugins.nvim-ts-autotag
         ];
         neonixdev = {
           inherit (pkgs) nix-doc lua-language-server nixd;
