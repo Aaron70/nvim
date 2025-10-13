@@ -45,7 +45,6 @@
           ripgrep
           fd
           gcc
-          cowsay
         ];
         debug = with pkgs; {
           go = [ delve ];
@@ -54,12 +53,14 @@
           gopls
           gotools
           go-tools
+          vimPlugins.vim-go
           #gccgo
         ];
         typescript = with pkgs; [
           typescript-go
           tailwindcss-language-server
           vscode-langservers-extracted
+          vimPlugins.nvim-ts-autotag
         ];
         neonixdev = {
           inherit (pkgs) nix-doc lua-language-server nixd;
