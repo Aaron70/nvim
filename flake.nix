@@ -45,6 +45,7 @@
           ripgrep
           fd
           gcc
+          harper
         ];
         debug = with pkgs; {
           go = [ delve ];

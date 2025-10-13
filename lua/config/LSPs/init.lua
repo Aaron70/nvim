@@ -163,24 +163,14 @@ require('lze').load {
       },
     },
   },
-  {
-    "gdscript",
-    lsp = {}
-  },
+  { "gdscript", lsp = {} },
+  { "tsgo",  lsp = {}, }, -- TypeScript language server written in Go
+  { "tailwindcss", lsp = {} },
+  { "eslint", lsp = {} },
+  { "jsonls", lsp = {} },
+  -- { "harper_ls", lsp = {} },
   -- {
   --   "ts_ls",
   --   lsp = {},
   -- },
-  {
-    "tsgo", -- TypeScript language server written in Go
-    lsp = {},
-  },
-  {
-    "tailwindcss",
-    lsp = {}
-  },
-  {
-    "eslint",
-    lsp = {}
-  }
 }
