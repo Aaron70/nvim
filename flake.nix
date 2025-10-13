@@ -54,7 +54,7 @@
           gopls
           gotools
           go-tools
-          gccgo
+          #gccgo
         ];
         typescript = with pkgs; [
           typescript-go
