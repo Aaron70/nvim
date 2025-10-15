@@ -55,6 +55,8 @@ local function live_grep_git_root()
 end
 
 return {
+  { "telescope-ui-select.nvim", dep_of = { "telescope.nvim" }, },
+  { "telescope-fzf-native.nvim", dep_of = { "telescope.nvim" }, },
   {
     "telescope.nvim",
     for_cat = 'general.telescope',
