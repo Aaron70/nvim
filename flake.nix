@@ -44,6 +44,8 @@
           universal-ctags
           ripgrep
           fd
+          gqlgen
+          jq
           gcc
           harper
         ];
@@ -149,8 +151,6 @@
             # This is for if you only want some of the grammars
             # (nvim-treesitter.withPlugins (
             #   plugins: with plugins; [
-            #     nix
-            #     lua
             #   ]
             # ))
           ];
@@ -176,6 +176,8 @@
             undotree
             indent-blankline-nvim
             vim-startuptime
+            rest-nvim
+            nvim-jqx
             # If it was included in your flake inputs as plugins-hlargs,
             # this would be how to add that plugin in your config.
             # pkgs.neovimPlugins.hlargs
