@@ -63,8 +63,8 @@ return {
     cmd = { "Telescope", "LiveGrepGitRoot" },
     -- NOTE: our on attach function defines keybinds that call telescope.
     -- so, the on_require handler will load telescope when we use those.
-    on_require = { "telescope", },
-    -- event = "",
+    -- on_require = { "telescope", },
+    event = "VimEnter",
     -- ft = "",
     keys = {
       { "<leader>sM", '<cmd>Telescope notify<CR>', mode = {"n"}, desc = '[S]earch [M]essage', },
