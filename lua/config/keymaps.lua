@@ -48,12 +48,29 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 --  See `:help 'clipboard'`
 -- vim.o.clipboard = 'unnamedplus'
 
--- You should instead use these keybindings so that they are still easy to use, but dont conflict
+-- You should instead use these key bindings so that they are still easy to use, but don't conflict
 vim.keymap.set({"v", "x", "n"}, '<leader>y', '"+y', { noremap = true, silent = true, desc = 'Yank to clipboard' })
 vim.keymap.set({"n", "v", "x"}, '<leader>Y', '"+yy', { noremap = true, silent = true, desc = 'Yank line to clipboard' })
 vim.keymap.set({"n", "v", "x"}, '<C-a>', 'gg0vG$', { noremap = true, silent = true, desc = 'Select all' })
 vim.keymap.set({'n', 'v', 'x'}, '<leader>p', '"+p', { noremap = true, silent = true, desc = 'Paste from clipboard' })
 vim.keymap.set('i', '<C-p>', '<C-r><C-p>+', { noremap = true, silent = true, desc = 'Paste from clipboard from within insert mode' })
 vim.keymap.set("x", "<leader>P", '"_dP', { noremap = true, silent = true, desc = 'Paste over selection without erasing unnamed register' })
+
+-- Lua Development
+vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>", { desc = "Source the current buffer" })
+vim.keymap.set("n", "<space>x", ":.lua<CR>", { desc = "Executes the current lua buffer" })
+vim.keymap.set("v", "<space>x", ":lua<CR>",  { desc = "Executes the selected lua code" })
+
+
+-- Toggle Harper LSP
+vim.keymap.set('n', '<leader>H', function()
+  local name = "harper_ls"
+  vim.lsp.enable(name, not vim.lsp.is_enabled(name))
+  if vim.lsp.is_enabled(name) then
+    vim.notify("Harper LSP enabled")
+  else
+    vim.notify("Harper LSP disabled")
+  end
+end, { desc = 'Toogle [H]arper LSP' })
 
 
