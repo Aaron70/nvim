@@ -42,6 +42,10 @@ vim.o.shiftwidth = 2
 
 -- stops line wrapping from being confusing
 vim.o.breakindent = true
+vim.o.linebreak = true
+vim.o.textwidth = 0
+vim.o.wrapmargin = 0
+vim.o.wrap = true
 
 -- Save undo history
 vim.o.undofile = true
