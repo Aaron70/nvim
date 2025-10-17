@@ -10,12 +10,12 @@ require("lze").register_handlers(require('nixCatsUtils.lzUtils').for_cat)
 -- you can set up lsps within lze specs,
 -- and trigger lspconfig setup hooks only on the correct filetypes
 require('lze').register_handlers(require('lzextras').lsp)
--- demonstrated in ./LSPs/init.lua
+-- demonstrated in ./lsps/init.lua
 
 -- NOTE: general plugins
 require("config.plugins")
 
-require("config.LSPs")
+require("config.lsps")
 
 -- NOTE: we even ask nixCats if we included our debug stuff in this setup! (we didnt)
 -- But we have a good base setup here as an example anyway!
