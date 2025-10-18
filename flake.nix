@@ -64,6 +64,9 @@
           tailwindcss-language-server
           vscode-langservers-extracted
         ];
+        quickshell = with pkgs; [
+          qt6.full
+        ];
         neonixdev = {
           inherit (pkgs) nix-doc lua-language-server nixd;
         };
@@ -254,6 +257,7 @@
         typescript = [
           [ "typescript" ] # yes it has to be a list of lists
         ];
+        quickshell = [ [ "quickshell" ] ];
       };
     };
 
@@ -303,6 +307,7 @@
           go = true;
           typescript = true;
           neonixdev = true;
+          quickshell = true;
           test = {
             subtest1 = true;
           };
