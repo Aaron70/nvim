@@ -2,21 +2,29 @@
 
 with pkgs; { 
   lspsAndRuntimeDeps = {
-    essentials = [
+    deps = [
       git
+      lazygit
     ];
   };
   startupPlugins = {
-    essentials =  with pkgs.vimPlugins; [
-      pkgs.vimPlugins.lazy-nvim
-      plenary-nvim
-      lazygit
+    deps = with pkgs; [
+      vimPlugins.plenary-nvim
+      vimPlugins.nui-nvim
+      vimPlugins.nvim-notify
+      vimPlugins.nvim-web-devicons
+    ];
+    essentials =  with pkgs; [
+      vimPlugins.lazy-nvim
+      vimPlugins.lazygit-nvim
+      vimPlugins.neo-tree-nvim
     ];
   };
   optionalPlugins = {};
   sharedLibraries = {};
-  environmentVariables = {
-  };
+  environmentVariables = {};
   extraWrapperArgs = {};
-  extraCats = { };
+  extraCats = {
+    essentials = [ [ "deps" ] ];
+  };
 }
