@@ -1,6 +1,6 @@
 return {
   "kdheepak/lazygit.nvim",
-  enabled = require('nixCatsUtils').enableForCategory("essentials"),
+  enabled = require('nixCatsUtils').enableForCategory("optionals.default"),
   lazy = true,
   cmd = {
     "LazyGit",

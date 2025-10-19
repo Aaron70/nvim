@@ -14,17 +14,30 @@ with pkgs; {
       vimPlugins.nvim-notify
       vimPlugins.nvim-web-devicons
     ];
-    essentials =  with pkgs; [
-      vimPlugins.lazy-nvim
-      vimPlugins.lazygit-nvim
-      vimPlugins.neo-tree-nvim
-    ];
+    essentials = {
+      default = with pkgs; [
+        vimPlugins.lazy-nvim
+        vimPlugins.neo-tree-nvim
+      ];
+      optionals = with pkgs; [
+        vimPlugins.comment-nvim
+      ];
+    };
+    optionals = {
+      default = with pkgs; [
+        vimPlugins.lazygit-nvim
+      ];
+    };
   };
   optionalPlugins = {};
   sharedLibraries = {};
   environmentVariables = {};
   extraWrapperArgs = {};
   extraCats = {
-    essentials = [ [ "deps" ] ];
+    essentials = [ 
+      [ "deps" ] 
+      [ "essentials" "default" ]
+      [ "essentials" "extra" ]
+    ];
   };
 }
