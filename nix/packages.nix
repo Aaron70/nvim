@@ -8,7 +8,9 @@
       # configDirName = "nixCats-nvim";
       # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
     };
-    categories = {};
-    extra = {};
+    categories = {
+      essentials = true;
+    };
+    extra = { };
   };
 }

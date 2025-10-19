@@ -9,15 +9,9 @@
   outputs = { nixpkgs, ... }@inputs: 
   let 
     inherit (inputs.nixCats) utils;
-    luaPath = ./nvim/;
+    luaPath = ./nvim;
     defaultPackageName = "nvim";
     forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
-
-
-    categoryDefinitions = import ./nix/categories.nix;
-    packageDefinitions = import ./nix/packages.nix;
-    dependencyOverlays = [];
-    extra_pkg_config = {};
   in forEachSystem 
   (
     system: 
@@ -25,6 +19,11 @@
       nixCatsBuilder = utils.baseBuilder luaPath { inherit nixpkgs system dependencyOverlays extra_pkg_config; } categoryDefinitions packageDefinitions;
       defaultPackage = nixCatsBuilder defaultPackageName;
       pkgs = import nixpkgs { inherit system; };
+
+      categoryDefinitions = import ./nix/categories.nix;
+      packageDefinitions = import ./nix/packages.nix;
+      dependencyOverlays = [];
+      extra_pkg_config = {};
     in {
       packages = utils.mkAllWithDefault defaultPackage;
 
