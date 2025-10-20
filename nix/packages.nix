@@ -1,16 +1,20 @@
 {
   # The name here is the name of the package
-  # and also the default command name for it.
+  # and the default command name for it.
   nvim = { pkgs, ... }: {
     settings = {
       aliases = [ "vim" ];
       wrapRc = true; # TODO: Change this to false
       # configDirName = "nixCats-nvim";
-      # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
+      # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.keovim;
     };
     categories = {
       essentials = true;
+      lua = true;
+      nix = true;
     };
-    extra = { };
+    extra = {
+      nixdExtras = { nixpkgs = ''import ${pkgs.path} {}''; };
+    };
   };
 }

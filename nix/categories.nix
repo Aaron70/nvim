@@ -6,6 +6,8 @@ with pkgs; {
       git
       lazygit
     ];
+    lua = { lsp = with pkgs; [ lua-language-server ]; };
+    nix = { lsp = with pkgs; [ nix-doc nixd ]; };
   };
   startupPlugins = {
     deps = with pkgs; [
