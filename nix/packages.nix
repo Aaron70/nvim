@@ -15,6 +15,8 @@
       colorscheme = "tokyonight";
       lua = true;
       nix = true;
+      go = true;
+      harper = true;
       typescript = true;
     };
     extra = {

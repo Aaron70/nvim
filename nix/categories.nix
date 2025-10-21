@@ -3,11 +3,30 @@
 with pkgs; { 
   lspsAndRuntimeDeps = {
     deps = [
+      fd
+      gcc
       git
       lazygit
+      ripgrep
     ];
     lua = { lsp = with pkgs; [ lua-language-server ]; };
     nix = { lsp = with pkgs; [ nix-doc nixd ]; };
+    harper = { lsp = with pkgs; [ harper ]; };
+    go = { 
+      defautl = with pkgs; [
+        gotools
+        go-tools
+      ];
+      lsp = with pkgs; [ gopls ]; 
+      debug = with pkgs; [ delve ]; 
+    };
+    typescript = {
+      lps = with pkgs; [
+        typescript-go
+        tailwindcss-language-server
+        vscode-langservers-extracted
+      ];
+    };
   };
   startupPlugins = {
     deps = with pkgs.vimPlugins; [
@@ -32,6 +51,7 @@ with pkgs; {
         colorful-menu-nvim
       ];
     };
+    lua = { lps = with pkgs.vimPlugins; [ lazydev-nvim ]; };
     themer = with pkgs.vimPlugins; (builtins.getAttr (categories.colorscheme or "tokyonight") {
         # Theme switcher without creating a new category
         "onedark" = onedark-nvim;

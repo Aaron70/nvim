@@ -110,7 +110,7 @@ return {
         end,
       },
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'omni' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'omni' },
         providers = {
           path = {
             score_offset = 50,
@@ -128,6 +128,12 @@ return {
             opts = {
               cmp_name = 'cmdline',
             },
+          },
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            -- make lazydev completions top priority (see `:h blink.cmp`)
+            score_offset = 100,
           },
         },
       },
