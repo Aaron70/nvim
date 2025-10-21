@@ -13,6 +13,7 @@
       optionals = true;
       themer = true;
       colorscheme = "tokyonight";
+      formatter = true;
       lua = true;
       nix = true;
       go = true;

@@ -90,6 +90,9 @@ with pkgs; {
         nvim-ts-autotag
       ];
     };
+    formatter = {
+      default = with pkgs.vimPlugins; [ conform-nvim ];
+    };
   };
   sharedLibraries = {};
   environmentVariables = {};
