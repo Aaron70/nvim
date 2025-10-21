@@ -2,6 +2,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     enabled = require('nixCatsUtils').enableForCategory("essentials"),
+    event = "VeryLazy",
     dependencies = {
       "nvim-treesitter"
     },

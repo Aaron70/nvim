@@ -10,8 +10,12 @@
     };
     categories = {
       essentials = true;
+      optionals = true;
+      themer = true;
+      colorscheme = "tokyonight";
       lua = true;
       nix = true;
+      typescript = true;
     };
     extra = {
       nixdExtras = { nixpkgs = ''import ${pkgs.path} {}''; };

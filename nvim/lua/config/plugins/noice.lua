@@ -1,6 +1,6 @@
 return {
   "folke/noice.nvim",
-  enabled = require('nixCatsUtils').enableForCategory("essentials.optionals"),
+  enabled = require('nixCatsUtils').enableForCategory("optionals"),
   event = "VeryLazy",
   dependencies = {
     "MunifTanjim/nui.nvim",

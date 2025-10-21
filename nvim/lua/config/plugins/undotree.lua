@@ -1,6 +1,6 @@
 return {
   "mbbill/undotree",
-  enabled = require('nixCatsUtils').enableForCategory("essentials.optionals"),
+  enabled = require('nixCatsUtils').enableForCategory("optionals"),
   cmd = { "UndotreeToggle", "UndotreeHide", "UndotreeShow", "UndotreeFocus", "UndotreePersistUndo", },
   keys = { { "<leader>U", "<cmd>UndotreeToggle<CR>", mode = { "n" }, desc = "Undo Tree" }, },
   init = function(_)

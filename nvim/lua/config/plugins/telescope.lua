@@ -34,17 +34,17 @@ end
 
 return {
   {
-    "telescope-ui-select.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
     enabled = telescopeEnabled,
     dependencies = { "telescope.nvim" },
   },
   {
-    "telescope-fzf-native.nvim",
+    "nvim-telescope/telescope-fzf-native.nvim",
     enabled = telescopeEnabled,
     dependencies = { "telescope.nvim" },
   },
   {
-    "telescope.nvim",
+    "nvim-telescope/telescope.nvim",
     enabled = telescopeEnabled,
     cmd = { "Telescope", "LiveGrepGitRoot" },
     event = "VimEnter",

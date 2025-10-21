@@ -2,6 +2,12 @@
 -- a non-nix installation
 require('nixCatsUtils').setup { non_nix_value = true }
 
+Colorscheme = nixCats('colorscheme')
+if not require('nixCatsUtils').isNixCats then
+  Colorscheme = 'tokyonight'
+end
+vim.cmd.colorscheme(Colorscheme)
+
 vim.g.have_nerd_font = nixCats 'have_nerd_font'
 
 local function getlockfilepath()
@@ -37,6 +43,8 @@ local lazyOptions = {
 
 require("nixCatsUtils.lazyCat").setup(
   nixCats.pawsible { 'allPlugins', 'start', 'lazy.nvim' },
-  { { import = "config.plugins" }, },
+  {
+    { import = "config.plugins" },
+  },
   lazyOptions
 )

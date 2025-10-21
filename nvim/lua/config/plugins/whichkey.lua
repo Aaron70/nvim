@@ -1,6 +1,6 @@
 return {
   "folke/which-key.nvim",
-  enabled = require('nixCatsUtils').enableForCategory("essentials.optionals"),
+  enabled = require('nixCatsUtils').enableForCategory("optionals"),
   event = "UIEnter",
   opts = {},
   keys = {
