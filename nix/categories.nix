@@ -68,6 +68,7 @@ with pkgs; {
         lualine-nvim
         comment-nvim
         fidget-nvim
+        render-markdown-nvim
       ];
     };
     optionals = {
