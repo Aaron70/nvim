@@ -4,8 +4,8 @@
   nvim = { pkgs, ... }: {
     settings = {
       aliases = [ "vim" ];
-      wrapRc = true; # TODO: Change this to false
-      # configDirName = "nixCats-nvim";
+      wrapRc = false;
+      configDirName = "nvim";
       # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.keovim;
     };
     categories = {

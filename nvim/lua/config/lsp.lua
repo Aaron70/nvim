@@ -15,7 +15,7 @@ lsputils.enableLspConfigurations({
   { "eslint", enabled = nixCats('typescript') },
   { "jsonls", enabled = nixCats('typescript') },
   { "gdscript", enabled = nixCats('gdscript') },
-  { "harper_ls", enabled = nixCats('harper_ls')}
+  { "harper_ls", enabled = false and nixCats('harper_ls') } --disabled by default but I'm gonna leave the category so I don't forget to added it again :P
 })
 
 vim.lsp.config('*', {
