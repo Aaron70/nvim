@@ -85,6 +85,9 @@ with pkgs; {
         telescope-fzf-native-nvim
         telescope-ui-select-nvim
       ];
+      extra = with pkgs.vimPlugins; [
+        neoscroll-nvim
+      ];
     };
     typescript = {
       default = with pkgs.vimPlugins; [
