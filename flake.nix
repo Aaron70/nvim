@@ -9,7 +9,7 @@
   outputs = { nixpkgs, ... }@inputs: 
   let 
     inherit (inputs.nixCats) utils;
-    luaPath = ./nvim;
+    luaPath = ./.;
     defaultPackageName = "nvim";
     forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
 

@@ -4,7 +4,7 @@
   nvim = { pkgs, ... }: {
     settings = {
       aliases = [ "vim" ];
-      wrapRc = true;
+      wrapRc = false;
       # configDirName = "nvim";
       # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.keovim;
     };
