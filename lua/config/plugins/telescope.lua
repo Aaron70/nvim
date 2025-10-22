@@ -49,7 +49,6 @@ return {
     cmd = { "Telescope", "LiveGrepGitRoot" },
     event = "VimEnter",
     keys = {
-      { "<leader>sM", '<cmd>Telescope notify<CR>', mode = { "n" }, desc = '[S]earch [M]essage', },
       { "<leader>sp", live_grep_git_root,          mode = { "n" }, desc = '[S]earch git [P]roject root', },
       {
         "<leader>/",
@@ -107,6 +106,7 @@ return {
       -- Enable telescope extensions, if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension, 'fidget')
 
       vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
     end,

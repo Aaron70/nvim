@@ -42,6 +42,7 @@ with pkgs; {
         nvim-lspconfig
         nvim-treesitter
         nvim-treesitter-textobjects
+        nvim-treesitter.withAllGrammars
       ];
       blink = with pkgs.vimPlugins; [
         blink-cmp
@@ -66,7 +67,7 @@ with pkgs; {
     essentials = {
       optionals = with pkgs.vimPlugins; [
         lualine-nvim
-        comment-nvim
+        ts-comment-nvim
         fidget-nvim
         render-markdown-nvim
       ];
@@ -87,6 +88,7 @@ with pkgs; {
       ];
       extra = with pkgs.vimPlugins; [
         neoscroll-nvim
+        todo-comments-nvim
       ];
     };
     typescript = {

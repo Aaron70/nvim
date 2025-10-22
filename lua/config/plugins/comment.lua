@@ -1,6 +1,6 @@
 return {
-  "numToStr/comment.nvim",
+  "folke/ts-comments.nvim",
   enabled = require('nixCatsUtils').enableForCategory("essentials.optionals"),
-  event = "UIEnter",
   opts = {},
+  event = "VeryLazy",
 }

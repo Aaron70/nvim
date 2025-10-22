@@ -1,7 +1,7 @@
 local notify = require("notify")
 return {
   "rcarriga/nvim-notify",
-  enabled = require('nixCatsUtils').enableForCategory("essentials"),
+  enabled = require('nixCatsUtils').enableForCategory("essentials") and false,
   opts = {
     top_dow = false,
     on_open = function(win)
