@@ -67,7 +67,7 @@ with pkgs; {
     essentials = {
       optionals = with pkgs.vimPlugins; [
         lualine-nvim
-        ts-comment-nvim
+        ts-comments-nvim
         fidget-nvim
         render-markdown-nvim
       ];
@@ -91,6 +91,7 @@ with pkgs; {
         todo-comments-nvim
       ];
     };
+    apis = with pkgs.vimPlugins; [ rest-nvim ];
     typescript = {
       default = with pkgs.vimPlugins; [
         nvim-ts-autotag

@@ -19,6 +19,7 @@
       go = true;
       harper = true;
       typescript = true;
+      apis = true;
     };
     extra = {
       nixdExtras = { nixpkgs = ''import ${pkgs.path} {}''; };
