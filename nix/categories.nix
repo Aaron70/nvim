@@ -3,6 +3,7 @@
 with pkgs; { 
   lspsAndRuntimeDeps = {
     deps = [
+      jq
       fd
       gcc
       git
