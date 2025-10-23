@@ -40,9 +40,8 @@ with pkgs; {
         lazy-nvim
         neo-tree-nvim
         nvim-lspconfig
-        nvim-treesitter
-        nvim-treesitter-textobjects
         nvim-treesitter.withAllGrammars
+        nvim-treesitter-textobjects
       ];
       blink = with pkgs.vimPlugins; [
         blink-cmp
