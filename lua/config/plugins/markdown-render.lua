@@ -5,4 +5,7 @@ return {
   opts = {
     completions = { lsp = { enabled = true } },
   },
+  config = function(_)
+    vim.g.markdown_recommended_style = 0
+  end
 }
