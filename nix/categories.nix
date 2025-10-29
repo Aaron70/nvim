@@ -53,6 +53,7 @@ with pkgs; {
       ];
     };
     lua = { lps = with pkgs.vimPlugins; [ lazydev-nvim ]; };
+    debug = with pkgs.vimPlugins; [ nvim-nio ];
     themer = with pkgs.vimPlugins; (builtins.getAttr (categories.colorscheme or "tokyonight") {
         # Theme switcher without creating a new category
         "onedark" = onedark-nvim;
@@ -99,6 +100,14 @@ with pkgs; {
     };
     formatter = {
       default = with pkgs.vimPlugins; [ conform-nvim ];
+    };
+    go.debug = with pkgs.vimPlugins; [ nvim-dap-go ];
+    debug = with pkgs.vimPlugins; {
+      default = [
+        nvim-dap
+        nvim-dap-ui
+        nvim-dap-virtual-text
+      ];
     };
   };
   sharedLibraries = {};

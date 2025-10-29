@@ -5,6 +5,7 @@ return {
   ft = "lua",
   opts = {
     library = {
+      "nvim-dap-ui",
       { words = { "nixCats" }, path = (nixCats.nixCatsPath or "") .. '/lua' },
     },
   },

@@ -20,6 +20,7 @@
       harper = true;
       typescript = true;
       apis = true;
+      debug = true;
     };
     extra = {
       nixdExtras = { nixpkgs = ''import ${pkgs.path} {}''; };
