@@ -2,15 +2,16 @@ return {
     "lewis6991/gitsigns.nvim",
     enabled = require('nixCatsUtils').enableForCategory("optionals.default"),
     event = "UIEnter",
-    opts = {
+    config = function (_)
+      require("gitsigns").setup({
         -- See `:help gitsigns.txt`
-        signs = {
-          add = { text = '+' },
-          change = { text = '~' },
-          delete = { text = '_' },
-          topdelete = { text = '‾' },
-          changedelete = { text = '~' },
-        },
+        -- signs = {
+        --   add = { text = '+' },
+        --   change = { text = '~' },
+        --   delete = { text = '_' },
+        --   topdelete = { text = '‾' },
+        --   changedelete = { text = '~' },
+        -- },
         on_attach = function(bufnr)
           local gs = package.loaded.gitsigns
 
@@ -71,8 +72,8 @@ return {
           -- Text object
           map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
         end,
-      },
-    config = function (_)
+      })
+
       vim.cmd([[hi GitSignsAdd guifg=#04de21]])
       vim.cmd([[hi GitSignsChange guifg=#83fce6]])
       vim.cmd([[hi GitSignsDelete guifg=#fa2525]])
