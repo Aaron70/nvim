@@ -6,7 +6,7 @@ vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 -- Set completeopt to have a better completion experience
 -- vim.o.completeopt = 'menu,preview,noselect'
 vim.opt.completeopt = { 'menu', 'preview', 'fuzzy', 'menuone', 'noselect' }
-vim.opt.mouse = 'a'               -- allow the mouse to be used in nvim
+vim.opt.mouse = 'a' -- allow the mouse to be used in nvim
 
 -- Tab
 local tabspaces = 2
@@ -100,8 +100,8 @@ vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.opt.fillchars = {
   -- fold = " ",
-  foldopen = "",   -- arrow for open fold
-  foldclose = "",  -- arrow for closed fold
+  foldopen = "", -- arrow for open fold
+  foldclose = "", -- arrow for closed fold
   -- foldsep = " ",
   foldinner = " "
 }

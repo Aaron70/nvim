@@ -6,7 +6,7 @@ vim.pack.add({
   { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
 })
 
-vim.keymap.set("n", "\\", ":Neotree reveal<CR>", { desc = 'NeoTree reveal' } )
+vim.keymap.set("n", "\\", ":Neotree reveal<CR>", { desc = 'NeoTree reveal', silent = true })
 require("neo-tree").setup({
   filesystem = {
     filtered_items = {
