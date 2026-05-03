@@ -11,6 +11,8 @@ inputs: {
     # Dependencies
     gcc
     cargo
+    lazygit
+    git
 
     # tree-sitter-cli
     tree-sitter
