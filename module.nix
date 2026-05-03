@@ -7,14 +7,22 @@ inputs:
 {
   imports = [ wlib.wrapperModules.neovim ];
 
+
   # choose a directory for your config.
   config.settings.config_directory = ./.;
   config.extraPackages = with pkgs;[
+    # Dependencies
     gcc
     cargo
-    lua-language-server
-    tree-sitter
+
     # tree-sitter-cli
+    tree-sitter
+
+    # Language Servers
+    lua-language-server
+    nixd
+
+    alejandra # Nix Formatter
   ];
   config.specs.general = {
     data = with pkgs.vimPlugins; [
