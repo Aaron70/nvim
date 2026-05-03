@@ -9,10 +9,19 @@ inputs:
 
   # choose a directory for your config.
   config.settings.config_directory = ./.;
-  config.extraPackages = with pkgs; [
+  config.extraPackages = with pkgs;[
+    gcc
     cargo
     lua-language-server
+    tree-sitter
+    # tree-sitter-cli
   ];
+  config.specs.general = {
+    data = with pkgs.vimPlugins; [
+      nvim-treesitter-textobjects
+      nvim-treesitter.withAllGrammars
+    ];
+  };
   # you can also use an impure path!
   # config.settings.config_directory = lib.generators.mkLuaInline "vim.fn.stdpath('config')";
   # config.settings.config_directory = "/home/<USER>/.config/nvim";
