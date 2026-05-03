@@ -46,7 +46,7 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 5
+-- vim.opt.scrolloff = 5
 
 -- Make line numbers default
 vim.wo.number = true
