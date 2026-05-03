@@ -9,6 +9,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Scroll Down' })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = 'Scroll Up' })
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Next Search Result' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Previous Search Result' })
+vim.keymap.set("n", "<leader>RR", "<cmd>restart<CR>", { desc = 'Restart Neovim' })
 
 vim.keymap.set("n", "<leader><leader>[", "<cmd>bprev<CR>", { desc = 'Previous Buffer' })
 vim.keymap.set("n", "<leader><leader>]", "<cmd>bnext<CR>", { desc = 'Next buffer' })
