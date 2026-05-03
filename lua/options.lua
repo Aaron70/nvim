@@ -92,3 +92,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.g.netrw_liststyle = 0
 vim.g.netrw_banner = 0
+
+-- Fold
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.opt.fillchars = {
+  -- fold = " ",
+  foldopen = "",   -- arrow for open fold
+  foldclose = "",  -- arrow for closed fold
+  -- foldsep = " ",
+  foldinner = " "
+}
