@@ -1,16 +1,13 @@
-inputs:
-{
+inputs: {
   wlib,
   pkgs,
   ...
-}:
-{
-  imports = [ wlib.wrapperModules.neovim ];
-
+}: {
+  imports = [wlib.wrapperModules.neovim];
 
   # choose a directory for your config.
   config.settings.config_directory = ./.;
-  config.extraPackages = with pkgs;[
+  config.extraPackages = with pkgs; [
     # Dependencies
     gcc
     cargo
@@ -44,5 +41,4 @@ inputs:
   # and make sure these dont share values:
   # config.binName = "nvim";
   # config.settings.aliases = [ ];
-  
 }

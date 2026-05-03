@@ -66,8 +66,8 @@ vim.wo.signcolumn = 'yes'
 vim.wo.relativenumber = true
 
 -- Decrease update time
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+-- vim.o.updatetime = 250
+-- vim.o.timeoutlen = 300
 
 
 -- [[ Disable auto comment on enter ]]
