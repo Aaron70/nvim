@@ -26,17 +26,14 @@ cmp.setup({
         auto_show = true,
       },
     },
-    sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
-    },
-    -- sources = function()
-    --   local type = vim.fn.getcmdtype()
-    --   -- Search forward and backward
-    --   if type == '/' or type == '?' then return { 'buffer' } end
-    --   -- Commands
-    --   if type == ':' or type == '@' then return { 'cmdline', 'cmp_cmdline' } end
-    --   return {}
-    -- end,
+    sources = function()
+      local type = vim.fn.getcmdtype()
+      -- Search forward and backward
+      if type == '/' or type == '?' then return { 'buffer' } end
+      -- Commands
+      if type == ':' or type == '@' then return { 'cmdline', 'cmp_cmdline' } end
+      return {}
+    end,
   },
   fuzzy = {
     sorts = {
