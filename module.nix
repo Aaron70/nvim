@@ -20,6 +20,9 @@ inputs: {
     # Language Servers
     lua-language-server
     nixd
+    typescript-go
+    tailwindcss-language-server
+    vscode-langservers-extracted
 
     alejandra # Nix Formatter
   ];
