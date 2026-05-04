@@ -13,6 +13,7 @@ telescope.setup({
     mappings = {
       i = { ["<c-enter>"] = "to_fuzzy_refine" },
     },
+    path_display = { "filename_first" },
   },
   extensions = {
     ["ui-select"] = {
