@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Use `:h <option>` to read about the option doc
-vim.opt.clipboard = 'unnamedplus' -- use system clipboard
+-- vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 -- Set completeopt to have a better completion experience
 -- vim.o.completeopt = 'menu,preview,noselect'
 vim.opt.completeopt = { 'menu', 'preview', 'fuzzy', 'menuone', 'noselect' }
