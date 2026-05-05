@@ -34,6 +34,7 @@ inputs: {
       nvim-treesitter.withAllGrammars
     ];
   };
+  config.info.jdtls_path = "${pkgs.jdt-language-server}";
   # you can also use an impure path!
   # config.settings.config_directory = lib.generators.mkLuaInline "vim.fn.stdpath('config')";
   # config.settings.config_directory = "/home/<USER>/.config/nvim";
