@@ -3,8 +3,10 @@ dependencies:
     lua-language-server
 
 TODO: 
-- [ ] Add more language servers 
-- [ ]  Markdown images
 - [ ] Debug Adapter Plugin (DAP)
-- [ ] Command line autocompletion 
+- [ ] Find in files under a directory
+- [ ] Go To Definition falls back to Go To Implementation and backwards
+- [ ] Java Support
+    - [ ] Gradle tasks 
+    - [ ] Multi project setup
 
