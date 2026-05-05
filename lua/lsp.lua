@@ -13,7 +13,7 @@ enable_lsp_servers({
   "tailwindcss",
   "eslint",
   "gdscript",
-  "harper_ls",
+  -- "harper_ls",
   "jdtls"
 })
 
