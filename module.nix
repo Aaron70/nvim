@@ -6,7 +6,8 @@ inputs: {
   imports = [wlib.wrapperModules.neovim];
 
   # choose a directory for your config.
-  config.settings.config_directory = ./.;
+  config.settings.config_directory = "/Users/aaronv/.config/nvim12";
+  # config.settings.config_directory = ./.;
   config.extraPackages = with pkgs; [
     # Dependencies
     gcc
