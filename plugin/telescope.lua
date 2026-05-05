@@ -22,6 +22,10 @@ telescope.setup({
   },
 })
 
+pcall(telescope.load_extension, "fzf")
+pcall(telescope.load_extension, "ui-select")
+pcall(telescope.load_extension, "fidget")
+
 local function find_git_root()
   -- Use the current buffer's path as the starting point for the git search
   local current_file = vim.api.nvim_buf_get_name(0)
@@ -54,9 +58,6 @@ local function live_grep_git_root()
   end
 end
 
-pcall(telescope.load_extension, "fzf")
-pcall(telescope.load_extension, "ui-select")
-pcall(telescope.load_extension, "fidget")
 
 vim.api.nvim_create_user_command("LiveGrepGitRoot", live_grep_git_root, {})
 
