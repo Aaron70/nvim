@@ -1,7 +1,3 @@
-require('options')
-require('keymaps')
-require('lsp')
-
 require("vim._core.ui2").enable {
   enable = true,
   msg = { -- Options related to the message module.
@@ -25,6 +21,11 @@ require("vim._core.ui2").enable {
     },
   },
 }
+require('options')
+require('keymaps')
+require('lsp')
+
+
 
 vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", { desc = "Show LSP Info", })
 vim.api.nvim_create_user_command("LspRestart", "lsp restart", { desc = "Restart LSP", })
