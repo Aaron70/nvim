@@ -23,6 +23,7 @@ inputs: {
     typescript-go
     tailwindcss-language-server
     vscode-langservers-extracted
+    jdt-language-server
 
     alejandra # Nix Formatter
   ];
