@@ -105,3 +105,5 @@ vim.opt.fillchars = {
   -- foldsep = " ",
   foldinner = " "
 }
+
+vim.o.winborder = "rounded"
