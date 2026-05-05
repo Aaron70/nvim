@@ -28,13 +28,17 @@ local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.expand('~/.cache/jdtls/workspace/') .. project_name
 
 local lombok_jar  = find_lombok()
+local cmd = {
+  "jdtls",
+  "-data", workspace_dir,
+}
+
+if lombok_jar then
+  table.insert(cmd, "--jvm-arg=-javaagent:" .. lombok_jar)
+end
 
 return {
-  cmd = {
-    "jdtls", 
-    "-data", workspace_dir,
-    "--jvm-arg=-javaagent:" .. lombok_jar,
-  },
+  cmd = cmd,
   settings = {
     java = {
       import = {
