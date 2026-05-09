@@ -24,6 +24,7 @@ inputs: {
     tailwindcss-language-server
     vscode-langservers-extracted
     jdt-language-server
+    gopls
 
     alejandra # Nix Formatter
   ];

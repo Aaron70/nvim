@@ -25,8 +25,6 @@ require('options')
 require('keymaps')
 require('lsp')
 
-
-
 vim.api.nvim_create_user_command("LspInfo", "checkhealth vim.lsp", { desc = "Show LSP Info", })
 vim.api.nvim_create_user_command("LspRestart", "lsp restart", { desc = "Restart LSP", })
 vim.api.nvim_create_user_command("LspLog", function(_)
