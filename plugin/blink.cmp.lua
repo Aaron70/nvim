@@ -83,7 +83,7 @@ cmp.setup({
     end,
   },
   sources = {
-    default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer', 'omni' },
+    default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
     providers = {
       path = {
         score_offset = 50,
