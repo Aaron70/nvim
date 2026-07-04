@@ -6,7 +6,8 @@ inputs: {
   imports = [wlib.wrapperModules.neovim];
 
   # choose a directory for your config.
-  config.settings.config_directory = ./.;
+  config.settings.config_directory = "/home/aaronv/.config/nvim"; # Uses the configuration outside the nix-store (Mutable)
+  # config.settings.config_directory = ./.; # Uses the configuration inside the nix-store (Inmutable)
   config.extraPackages = with pkgs; [
     # Dependencies
     gcc
