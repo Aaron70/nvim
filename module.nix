@@ -14,6 +14,7 @@ inputs: {
     cargo
     lazygit
     git
+    postgresql
 
     # tree-sitter-cli
     tree-sitter

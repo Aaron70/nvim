@@ -84,6 +84,9 @@ cmp.setup({
   },
   sources = {
     default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+    per_filetype = {
+      sql = { 'snippets', 'dadbod', 'lsp', 'buffer' }
+    },
     providers = {
       path = {
         score_offset = 50,
@@ -108,6 +111,10 @@ cmp.setup({
         -- make lazydev completions top priority (see `:h blink.cmp`)
         score_offset = 100,
       },
+      dadbod = {
+        name = "dadbod",
+        module = "vim_dadbod_completion.blink"
+      }
     },
   },
 })
