@@ -2,11 +2,15 @@ inputs: {
   wlib,
   pkgs,
   ...
-}: {
+}:
+let
+  userName = "aaronv";
+  homeDir = if pkgs.stdenv.isDarwin then "/Users/${userName}" else "/home/${userName}";
+in {
   imports = [wlib.wrapperModules.neovim];
 
   # choose a directory for your config.
-  config.settings.config_directory = "/home/aaronv/.config/nvim"; # Uses the configuration outside the nix-store (Mutable)
+  config.settings.config_directory = "${homeDir}/.config/nvim"; # Uses the configuration outside the nix-store (Mutable)
   # config.settings.config_directory = ./.; # Uses the configuration inside the nix-store (Inmutable)
   config.extraPackages = with pkgs; [
     # Dependencies
