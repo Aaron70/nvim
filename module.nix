@@ -18,8 +18,9 @@ in {
     cargo
     lazygit
     git
-    postgresql
-    mariadb
+    # NOTE: This two are used by dadbod, but maybe they should be installed by the host machine rather than go with neovim config, as some hosts might not need the other client
+    # postgresql
+    # mariadb
 
     # tree-sitter-cli
     tree-sitter
