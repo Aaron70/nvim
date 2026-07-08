@@ -19,6 +19,7 @@ in {
     lazygit
     git
     postgresql
+    mariadb
 
     # tree-sitter-cli
     tree-sitter
