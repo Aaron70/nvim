@@ -103,8 +103,9 @@
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "pathfinder.nvim": {
-      "rev": "9c79815dfd31726119b44a71c0654377be01d3c2",
-      "src": "https://github.com/HawkinsT/pathfinder.nvim"
+      "rev": "ccbcd3cb03494b9e4657dc295acfc31e1b4e90e7",
+      "src": "https://github.com/Aaron70/pathfinder.nvim",
+      "version": "'feat/support-go-doc-link'"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
