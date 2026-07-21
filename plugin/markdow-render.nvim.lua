@@ -9,4 +9,11 @@ require("render-markdown").setup({
   pipe_table = { preset = 'round' },
   indent = { enabled = false, skip_heading = false, icon = ' ', sign = false },
   heading = { position = 'inline', left_pad = 1, sign = false },
+  checkbox = {
+    enabled = true,
+    checked = { scope_highlight = '@markup.strikethrough' },
+    custom = {
+      wontdo = { raw = '[/]', rendered = '󱋭 ', highlight = 'DiagnosticError', scope_highlight = '@markup.strikethrough' },
+    },
+  }
 })
