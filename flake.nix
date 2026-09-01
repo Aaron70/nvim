@@ -23,16 +23,18 @@
       systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
       forAllSystems = nixpkgs.lib.genAttrs systems;
       module = nixpkgs.lib.modules.importApply ./module.nix inputs;
+      moduleWrapped = module // { config.settings.config_directory = nixpkgs.lib.mkForce ./.; };
+      wrapperWrapped = wrappers.lib.evalModule moduleWrapped;
       wrapper = wrappers.lib.evalModule module;
     in
     {
       wrapperModules = {
         neovim = module;
-        default = self.wrapperModules.neovim;
+        default = moduleWrapped;
       };
       wrappers = {
         neovim = wrapper.config;
-        default = self.wrappers.neovim;
+        default = wrapperWrapped.config;
       };
       packages = forAllSystems (
         system:
@@ -41,7 +43,7 @@
         in
         {
           neovim = self.wrappers.neovim.wrap { inherit pkgs; };
-          default = self.packages.${system}.neovim;
+          default = self.wrappers.default.wrap { inherit pkgs; };
           formatter = pkgs.alejandra;
         }
       );
@@ -50,15 +52,18 @@
       # You can set any of the options.
       # But that is how you enable it.
       nixosModules = {
-        default = self.nixosModules.neovim;
+        default = wrappers.lib.getInstallModule {
+          name = "neovim";
+          value = moduleWrapped;
+        };
         neovim = wrappers.lib.getInstallModule {
           name = "neovim";
           value = module;
         };
       };
       homeModules = {
-        default = self.homeModules.neovim;
         # they produce generically importable modules
+        default = self.nixosModules.default;
         neovim = self.nixosModules.neovim;
       };
     };
